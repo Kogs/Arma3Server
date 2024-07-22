@@ -3,6 +3,8 @@ import re
 import shutil
 import subprocess
 from string import Template
+import getpass
+
 
 import local
 import workshop
@@ -31,7 +33,7 @@ if os.environ["SKIP_INSTALL"] in ["", "false"]:
     steamcmd.extend(["+force_install_dir", "/arma3"])
 
     username = input("Enter username:")
-    password = input("Password:")
+    password = getpass.getpass("Password:")
     authCode = input("Auth Code:")
     
     steamcmd.extend(["+login", username, password, authCode])
